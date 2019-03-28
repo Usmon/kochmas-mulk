@@ -8,19 +8,20 @@
                     <div class="col-md-12">
                         <div class="blog-sec">
                             <div class="row">
+                                <?php foreach($posts as $post): ?>
                                 <div class="col-md-6">
                                     <div class="blog-post">
                                         <div class="post-thumb">
                                             <?= Html::img('@web/img/post1.jpg') ?>
                                             <div class="post-detail">
                                                 <a href="batafsil" title="" class="post-cat">Batafsil...</a>
-                                                <h2><a href="#" title="">Lorem ipsum dolor sit amet</a></h2>
+                                                <h2><a href="#" title=""><?=$post->title?></a></h2>
                                                 <span><i class="fa fa-calendar-o"></i> 
                                                   <?php 
-                                                      echo Yii::$app->formatter->asDate('1998-06-25', 'long'); 
+                                                      echo Yii::$app->formatter->asDate($post->create_date, 'long'); 
                                                   ?>  
                                                 </span>
-                                                <p>Nulla ornare porttitor diama accumsan justo laoreet suscipit.</p>
+                                                <p><?=$post->desc?></p>
                                             </div>
                                         </div>
                                         <div class="post-admin">
@@ -32,6 +33,7 @@
                                         </div>
                                     </div><!-- Blog Post -->
                                 </div>
+                                <?php endforeach; ?>
                                     </div><!-- Blog Post -->
                                 </div>
                             </div>

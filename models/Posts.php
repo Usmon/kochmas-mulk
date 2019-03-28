@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\StringHelper;
 
 /**
  * This is the model class for table "posts".
@@ -47,4 +48,12 @@ class Posts extends \yii\db\ActiveRecord
             'create_date' => 'Create Date',
         ];
     }
+
+
+    public function getDesc()
+    {
+        $short = StringHelper::truncateWords($this->content, 3);
+        return $short;
+    }
+
 }
