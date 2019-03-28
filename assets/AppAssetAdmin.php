@@ -32,10 +32,7 @@ class AppAssetAdmin extends AssetBundle
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic',
     ];
     public $js = [
-
-            'bower_components/jquery/dist/jquery.min.js',
             'bower_components/jquery-ui/jquery-ui.min.js',
-            'bower_components/bootstrap/dist/js/bootstrap.min.js',
             'bower_components/raphael/raphael.min.js',
             'bower_components/morris.js/morris.min.js',
             'bower_components/jquery-sparkline/dist/jquery.sparkline.min.js',
