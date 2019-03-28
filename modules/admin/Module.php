@@ -18,7 +18,8 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
-
+        
+        $this->layout = 'dashboard';
         // custom initialization code goes here
     }
 }
