@@ -31,6 +31,7 @@ class Users extends \yii\db\ActiveRecord
         return [
             [['name', 'email', 'login', 'password'], 'required'],
             [['name', 'email', 'login', 'password'], 'string', 'max' => 255],
+            [['email'],'email'],                
         ];
     }
 
