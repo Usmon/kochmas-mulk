@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Posts;
+use app\models\Batafsil;
 
 class SiteController extends Controller
 {
@@ -125,4 +127,25 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
+    public function actionPosts() 
+    {
+        $news = Posts::find()->all();
+        return $this->render('posts', [
+            'posts' => $news
+        ]);
+    }
+
+    public function actionBatafsil($id)
+    {
+        return $this->render('batafsil');
+
+    }
+
+
+    // public function actionYangilikMore($id) {
+    //     echo $id;
+    //     echo "More";
+    // }
+
 }
