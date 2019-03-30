@@ -14,7 +14,11 @@
                                         <div class="post-thumb">
                                             <?= Html::img('@web/img/post1.jpg') ?>
                                             <div class="post-detail">
-                                                <a href="batafsil" title="" class="post-cat">Batafsil...</a>
+                                                
+                                                <!-- batafsil -->
+
+                                                <a href="<?= \yii\helpers\Url::to(['batafsil', 'id' => $post ->id]) ?>" title="" class="post-cat">Batafsil...</a>
+                                                
                                                 <h2><a href="#" title=""><?=$post->title?></a></h2>
                                                 <span><i class="fa fa-calendar-o"></i> 
                                                   <?php 

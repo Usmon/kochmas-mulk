@@ -120,7 +120,7 @@ class SiteController extends Controller
 
     /**
      * Displays about page.
-     *
+     *  
      * @return string
      */
     public function actionAbout()
@@ -138,8 +138,10 @@ class SiteController extends Controller
 
     public function actionBatafsil($id)
     {
-        return $this->render('batafsil');
-
+        // return $this->render('batafsil');
+        $id = Yii::$app->request->get('id');
+        $product = Posts::findOne($id);
+        return $this->render('batafsil', compact('product'));
     }
 
 
