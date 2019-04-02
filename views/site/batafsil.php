@@ -21,7 +21,7 @@
                                                 
                                             </div>
                                         </div>
-                                        <h2><?= $product->title;?></h2>
+                                        <h1><?= $product->title;?></h1>
                                         <p><?= $product->content;?></p>
                                        
                             </div><!-- Comment -->
