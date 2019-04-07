@@ -10,3 +10,4 @@ class YangiliklarController extends \yii\web\Controller
     }
 
 }
+?>

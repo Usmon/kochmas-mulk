@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Posts;
 use app\models\Batafsil;
+use app\models\Sell;
 
 class SiteController extends Controller
 {
@@ -138,16 +139,17 @@ class SiteController extends Controller
 
     public function actionBatafsil($id)
     {
-        // return $this->render('batafsil');
-        $id = Yii::$app->request->get('id');
-        $product = Posts::findOne($id);
-        return $this->render('batafsil', compact('product'));
+        $post = Posts::findOne($id);
+        return $this->render('batafsil', [
+            'post'=>$post
+        ]);
     }
-
-
-    // public function actionYangilikMore($id) {
-    //     echo $id;
-    //     echo "More";
-    // }
-
+    public function actionSell() 
+    {
+        $vendor = Sell::find()->all();
+        return $this->render('sell', [
+            'sell' => $vendor
+        ]);
+    }
+    
 }
