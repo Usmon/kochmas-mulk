@@ -2,9 +2,14 @@
 
 namespace app\models;
 
+use app\models\Users;
+
 class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 {
     public $id;
+    public $name;
+    public $email;
+    public $login;
     public $username;
     public $password;
     public $authKey;
@@ -58,11 +63,9 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
      */
     public static function findByUsername($username)
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
+        $user = Users::find()->where(['login'=>$username])->one();
+        if($user)
+            return $user;
 
         return null;
     }

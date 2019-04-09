@@ -118,6 +118,8 @@ class SiteController extends Controller
         ]);
     }
 
+
+
     /**
      * Displays about page.
      *  
@@ -138,12 +140,25 @@ class SiteController extends Controller
 
     public function actionBatafsil($id)
     {
-        // return $this->render('batafsil');
-        $id = Yii::$app->request->get('id');
-        $product = Posts::findOne($id);
-        return $this->render('batafsil', compact('product'));
+        $post = Posts::findOne($id);
+        return $this->render('batafsil',['post'=>$post]);
     }
 
+    public function actionRegistration()
+    {
+        $model = new \app\models\Users();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                // form inputs are valid, do something here
+                return;
+            }
+        }
+
+        return $this->render('registration', [
+            'model' => $model,
+        ]);
+    }    
 
     // public function actionYangilikMore($id) {
     //     echo $id;
