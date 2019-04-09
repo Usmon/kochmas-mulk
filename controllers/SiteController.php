@@ -139,13 +139,6 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionBatafsil($id)
-    {
-        $post = Posts::findOne($id);
-<<<<<<< HEAD
-        return $this->render('batafsil',['post'=>$post]);
-    }
-
     public function actionRegistration()
     {
         $model = new \app\models\Users();
@@ -162,16 +155,20 @@ class SiteController extends Controller
         ]);
     }    
 
-    // public function actionYangilikMore($id) {
-    //     echo $id;
-    //     echo "More";
-    // }
+     public function actionYangilikMore($id) {
+         echo $id;
+         echo "More";
+     }
 
-=======
+     public function actionBatafsil($id)
+    {
+        $post = Posts::findOne($id);
         return $this->render('batafsil', [
             'post'=>$post
         ]);
     }
+
+
     public function actionSell() 
     {
         $vendor = Sell::find()->all();
@@ -180,5 +177,5 @@ class SiteController extends Controller
         ]);
     }
     
->>>>>>> 9c4e15a9c172d2f8d82523e97f38e4f7c3a59fff
+
 }
