@@ -16,13 +16,13 @@
                                             <div class="post-detail">
                                               
                                                 <span><i class="fa fa-calendar-o"></i> 
-                                                    <?= $product->create_date;?>
+                                                    <?= $post->create_date;?>
                                                 </span>
                                                 
                                             </div>
                                         </div>
-                                        <h1><?= $product->title;?></h1>
-                                        <p><?= $product->content;?></p>
+                                        <h1><?= $post->title;?></h1>
+                                        <p><?= $post->content;?></p>
                                        
                             </div><!-- Comment -->
                     </div>

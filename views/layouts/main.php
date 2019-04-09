@@ -63,6 +63,7 @@ AppAsset::register($this);
                                 'options' => ['class' => 'navbar-nav navbar-right'],
                                 'items' => [
                                     ['label' => 'Bosh sahifa', 'url' => ['/site/index']],
+                                    ['label' => 'Sotuv', 'url' => ['/site/sell']],
                                     ['label' => 'Yangiliklar', 'url' => ['/site/posts']],
                                     ['label' => 'Biz bilan boglanish', 'url' => ['/site/contact']],
                                     Yii::$app->user->isGuest ? (

@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Posts;
 use app\models\Batafsil;
+use app\models\Sell;
 
 class SiteController extends Controller
 {
@@ -141,6 +142,7 @@ class SiteController extends Controller
     public function actionBatafsil($id)
     {
         $post = Posts::findOne($id);
+<<<<<<< HEAD
         return $this->render('batafsil',['post'=>$post]);
     }
 
@@ -165,4 +167,18 @@ class SiteController extends Controller
     //     echo "More";
     // }
 
+=======
+        return $this->render('batafsil', [
+            'post'=>$post
+        ]);
+    }
+    public function actionSell() 
+    {
+        $vendor = Sell::find()->all();
+        return $this->render('sell', [
+            'sell' => $vendor
+        ]);
+    }
+    
+>>>>>>> 9c4e15a9c172d2f8d82523e97f38e4f7c3a59fff
 }

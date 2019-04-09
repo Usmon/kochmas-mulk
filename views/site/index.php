@@ -568,7 +568,7 @@ use yii\helpers\Html;
                             <ul class="carousel">
                                 <li>
                                     <div class="agent-content">
-                                        <a href="agent.html"><img src="img/agents/agent1.jpg" alt="" /></a>
+                                        <a href="agent.html"><?= Html::img('@web/img/agents/agent1.jpg');?></a>
                                         <h3>SUPER AGENT</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
 
@@ -585,7 +585,7 @@ use yii\helpers\Html;
                                 </li>
                                 <li>
                                     <div class="agent-content">
-                                        <a href="agent.html"><img src="img/agents/agent3.jpg" alt="" /></a>
+                                        <a href="agent.html"><?= Html::img('@web/img/agents/agent3.jpg');?></a>
                                         <h3>SUPER AGENT</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
 
@@ -602,7 +602,7 @@ use yii\helpers\Html;
                                 </li>
                                 <li>
                                     <div class="agent-content">
-                                        <a href="agent.html"><img src="img/agents/agent5.jpg" alt="" /></a>
+                                        <a href="agent.html"><?= Html::img('@web/img/agents/agent5.jpg');?></a>
                                         <h3>SUPER AGENT</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
 
@@ -620,7 +620,7 @@ use yii\helpers\Html;
 
                                 <li>
                                     <div class="agent-content">
-                                        <a href="agent.html"><img src="img/agents/agent4.jpg" alt="" /></a>
+                                        <a href="agent.html"><?= Html::img('@web/img/agents/agent4.jpg');?></a>
                                         <h3>SUPER AGENT</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
 
@@ -685,10 +685,10 @@ use yii\helpers\Html;
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title=""><img src="img/clients/our-client1.jpg" alt="" /></a>
+                                        <a href="#" title=""><?= Html::img('@web/img/clients/our-client1.jpg');?></a>
                                     </li>
                                     <li>
-                                        <a href="#" title=""><img src="img/clients/our-client3.jpg" alt="" /></a>
+                                        <a href="#" title=""><?= Html::img('@web/img/clients/our-client3.jpg');?></a>
                                     </li>
                                 </ul>
                             </div>
