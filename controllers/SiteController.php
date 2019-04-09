@@ -137,6 +137,28 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionRegistration()
+    {
+        $model = new \app\models\Users();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                // form inputs are valid, do something here
+                return;
+            }
+        }
+
+        return $this->render('registration', [
+            'model' => $model,
+        ]);
+    }    
+
+     public function actionYangilikMore($id) {
+         echo $id;
+         echo "More";
+     }
+
+
     public function actionBatafsil($id)
     {
         $post = Posts::findOne($id);
@@ -144,6 +166,8 @@ class SiteController extends Controller
             'post'=>$post
         ]);
     }
+
+
     public function actionSell() 
     {
         $vendor = Sell::find()->all();
@@ -151,5 +175,5 @@ class SiteController extends Controller
             'sell' => $vendor
         ]);
     }
-    
+
 }
