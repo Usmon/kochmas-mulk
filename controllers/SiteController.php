@@ -119,8 +119,6 @@ class SiteController extends Controller
         ]);
     }
 
-
-
     /**
      * Displays about page.
      *  
@@ -160,7 +158,8 @@ class SiteController extends Controller
          echo "More";
      }
 
-     public function actionBatafsil($id)
+
+    public function actionBatafsil($id)
     {
         $post = Posts::findOne($id);
         return $this->render('batafsil', [
@@ -176,6 +175,5 @@ class SiteController extends Controller
             'sell' => $vendor
         ]);
     }
-    
 
 }
