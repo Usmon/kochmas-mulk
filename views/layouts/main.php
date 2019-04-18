@@ -5,6 +5,7 @@
 
 use app\widgets\Alert;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -47,7 +48,7 @@ AppAsset::register($this);
             <div class="menu">
                 <div class="container">
                     <div class="logo">
-                        <a href="site/index" title="">
+                        <a href="<?=Url::home()?>" title="">
                             <i class="fa fa-get-pocket"></i>
                             <span>Ko'chmas mulk</span>
                             <strong>onlie bozor</strong>

@@ -21,6 +21,8 @@
                                                                 <div class="properties-thumb">
                                                                    <!--  <img src="img/demo/property1.jpg" alt=""> -->
                                                                     <?= Html::img('@web/img/demo/property1.jpg') ?>
+                                                                     <span class="spn-save"> <i class="ti ti-heart"></i> </span>
+
                                                                     <ul class="property-info">
                                                                         <li> 
                                                                             <i class="fa  fa-retweet"> </i> <span>1913 sqft </span>                                     

@@ -556,7 +556,7 @@ use yii\helpers\Html;
 
 
         <section class="block">
-            <div  style="background: transparent url(&quot;img/call-to-action-big.jpg&quot;) repeat scroll 50% 0px; background-attachment: fixed;" class="parallax scrolly-invisible  whitish"></div>
+            <div class="parallax scrolly-invisible  whitish"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
