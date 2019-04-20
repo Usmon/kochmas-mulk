@@ -37,6 +37,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'address',
             'quality',
             'rooms',
+            'content',   
+            [
+                'attribute' => 'image',
+                'value' => function($model){
+                    if($model->image)
+                        return Html::img('@web'.'/'.$model->image, ['width' => 150, 'height' => 150]);
+                    else
+                        return Html::img('@web/uploads/nophoto.png', ['width' => 150, 'height' => 150]);
+                },
+                'format' => 'raw',
+            ],
         ],
     ]) ?>
 

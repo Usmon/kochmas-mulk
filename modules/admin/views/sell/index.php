@@ -21,12 +21,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'title',
             'area',
             'material',
             'cost',
+            [
+                'attribute' => 'image',
+                'value' => function($model){
+                    if($model->image)
+                        return Html::img('@web'.'/'.$model->image, ['width' => 45, 'height' => 45 ,'class'=>'center-block' ]);
+                    else
+                        return Html::img('@web/uploads/nophoto.png', ['width' => 45, 'height' => 45]);
+                },
+                'format' => 'raw',
+            ],
             //'address',
             //'quality',
             //'rooms',

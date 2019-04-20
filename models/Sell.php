@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\imagine\Image;
 
 /**
  * This is the model class for table "sell".
@@ -18,6 +19,8 @@ use Yii;
  */
 class Sell extends \yii\db\ActiveRecord
 {
+
+    public $file_name;
     /**
      * {@inheritdoc}
      */
@@ -33,8 +36,11 @@ class Sell extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'area', 'material', 'cost', 'address', 'quality', 'rooms'], 'required'],
-            [['rooms'], 'integer'],
             [['title', 'area', 'material', 'cost', 'address', 'quality'], 'string', 'max' => 255],
+            [['rooms'], 'integer'],
+            [['image'],'string', 'max' => 100 ],
+            [['file_name'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
+            [['content'],'string','max' => 300]
         ];
     }
 
@@ -52,6 +58,28 @@ class Sell extends \yii\db\ActiveRecord
             'address' => 'Address',
             'quality' => 'Quality',
             'rooms' => 'Rooms',
+            'image' => 'Image',
+            'content' => 'Content'
         ];
     }
+
+
+    public function upload()
+    {
+        if ($this->validate() && $this->file_name != NULL){
+            $fileName = Yii::$app->getSecurity()->generateRandomString() . '.' . $this->file_name->extension;
+            $name = Yii::$app->params['upload_path'].'/'.$fileName;
+            $this->file_name->saveAs($name);
+            $this->file_name = NULL;
+            
+            //Generate thumbnail
+             Image::thumbnail('@webroot/'.$name, 300, 300)
+            ->save(Yii::getAlias('@webroot/uploads/thumb/'.$fileName), ['quality'=>20]);
+            
+            return $name;
+        }
+        
+        return false;
+    }
+
 }

@@ -77,13 +77,14 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
+        
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
 
         $model->password = '';
+        
         return $this->render('login', [
             'model' => $model,
         ]);
@@ -141,23 +142,14 @@ class SiteController extends Controller
     {
         $model = new \app\models\Users();
 
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate()) {
-                // form inputs are valid, do something here
-                return;
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
+            return $this->redirect(['site/index']);
         }
 
         return $this->render('registration', [
             'model' => $model,
         ]);
     }    
-
-     public function actionYangilikMore($id) {
-         echo $id;
-         echo "More";
-     }
-
 
     public function actionBatafsil($id)
     {

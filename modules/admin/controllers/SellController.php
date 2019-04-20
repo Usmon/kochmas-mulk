@@ -8,6 +8,8 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+
 
 /**
  * SellController implements the CRUD actions for Sell model.
@@ -22,7 +24,7 @@ class SellController extends Controller
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
-                'actions' => [
+                 'actions' => [
                     'delete' => ['POST'],
                 ],
             ],
@@ -66,8 +68,13 @@ class SellController extends Controller
     {
         $model = new Sell();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->file_name = UploadedFile::getInstance($model,'file_name');
+                            
+            $model->image = $model->upload();
+                                       
+            if($model->save())
+                return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -124,4 +131,15 @@ class SellController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    // public function actionImageCrop()
+    // {
+    //     $file = 'test_2.png';
+    //     Image::thumbnail('@webroot/uploads/'.$file, 300, 300)
+    //     ->save(Yii::getAlias('@webroot/uploads/thumb/'.$file), ['quality'=>20]);
+    // }
+
+        
+
+
 }

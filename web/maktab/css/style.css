@@ -456,7 +456,7 @@ iframe{
 }
 .menu nav > ul > li {
     float: left;
-    padding: 49px 22px;
+    padding: 49px 12px;
     position: relative;
 
 }
@@ -4263,4 +4263,8 @@ font-size: 16px;
 .nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
     background-color: inherit !important; 
+}
+form .help-block{
+    position: absolute;
+    right: 0;
 }

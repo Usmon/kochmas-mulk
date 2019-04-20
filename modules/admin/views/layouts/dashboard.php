@@ -2,6 +2,7 @@
 
 use app\widgets\Alert;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -38,9 +39,9 @@ AppAssetAdmin::register($this);
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>A</b>P</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Admin</b>Panel</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -254,7 +255,7 @@ AppAssetAdmin::register($this);
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <?=Html::img('@web/adminStyle/dist/img/user2-160x160.jpg',['class'=>'user-image'],['alt'=>'User Image'])?>
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs"><?php echo Yii::$app->user->identity->name ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -310,7 +311,7 @@ AppAssetAdmin::register($this);
           <?=Html::img('@web/adminStyle/dist/img/user2-160x160.jpg',['class'=>'img-circle'],['alt'=>'User Image'])?>
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?php echo Yii::$app->user->identity->name ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -327,19 +328,49 @@ AppAssetAdmin::register($this);
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
+        <li class="header">Barcha mavjud menyular</li>
+        
+        <li class="">
+          <a href="<?= Url::to(['/admin']) ?>">
+            <i class="fa fa-home"></i> <span>Main</span>
+            <!-- <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            </span> -->
           </a>
-          <ul class="treeview-menu">
+          <!-- <ul class="treeview-menu"> -->
             <!-- <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li> -->
             <!-- <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> -->
-          </ul>
+          <!-- </ul> -->
+
         </li>
+
+        <li class="">
+          <a href="<?= Url::to(['/admin/users/index']) ?>">
+            <i class="fa fa-users"></i> <span>Users</span>
+            <!-- <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span> -->
+          </a>
+          </li>
+
+        <li class="">
+          <a href="<?= Url::to(['/admin/posts/index']) ?>">
+            <i class="fa fa-envelope"></i> <span>Posts</span>
+            <!-- <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span> -->
+          </a>
+          </li>            
+
+            <li class="">
+          <a href="<?= Url::to(['/admin/sell/index']) ?>">
+            <i class="ion ion-bag"></i> <span>Sell</span>
+            <!-- <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span> -->
+          </a>
+          </li>
+
         <!-- <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
@@ -349,7 +380,11 @@ AppAssetAdmin::register($this);
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
+            <li>
+                <a href="users">
+                <i class="fa fa-circle-o"></i> 
+                Users</a>
+            </li>
             <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
             <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
             <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
@@ -504,82 +539,26 @@ AppAssetAdmin::register($this);
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-        <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <!-- <section class="content-header"> -->
+      <!-- <h1> -->
+        <!-- Dashboard -->
+        <!-- <small>Control panel</small> -->
+      <!-- </h1> -->
+      <!-- <ol class="breadcrumb"> -->
+        <!-- <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li> -->
         <!-- <li class="active"></li> -->
-      </ol>
-    </section>
+      <!-- </ol> -->
+    <!-- </section> -->
   
     <!-- Main content -->
     <section class="content">
       <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>155</h3>
+      
 
-              <p>New Orders</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="admin/posts" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+<!-- // this point for row class // -->
 
-              <p>Bounce Rate</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44</h3>
 
-              <p>User Registrations</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>65</h3>
 
-              <p>Unique Visitors</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
                   <div style="border-top:1px solid #CCEADC;">
                     <br>
                     <?= $content ?>

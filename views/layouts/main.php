@@ -9,9 +9,13 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Url;
 
 AppAsset::register($this);
+
 ?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -54,10 +58,28 @@ AppAsset::register($this);
                         </a>
                     </div><!-- LOGO -->
                     <div class="popup-client">
-                        <span><i class="fa fa-user"></i> / Royhatdan o'tish</span>
+                        <?php if(Yii::$app->user->isGuest): ?>
+                        <span> 
+                            <a href="<?=Url::to(['site/login'])?>">
+                            <i class="fa fa-user"></i> Kirish 
+                            </a>    
+                        </span>
+                        <?php else: ?>
+                            <span>      
+                            <?php
+                                echo Html::beginForm(['/site/logout'], 'post');
+                                    echo Html::submitButton(
+                                        'Chiqish (' . Yii::$app->user->identity->name . ')',
+                                        ['class' => 'btn btn-link logout']
+                                    );
+                                echo Html::endForm();
+                            ?>
+                        </span>
+                        <?php endif; ?>
                     </div>
                     <span class="menu-toggle"><i class="fa fa-bars"></i></span>
                     <nav>
+                        
                         <?php
                             echo Nav::widget([
                                 'options' => ['class' => 'navbar-nav navbar-right'],
@@ -66,28 +88,17 @@ AppAsset::register($this);
                                     ['label' => 'Sotuv', 'url' => ['/site/sell']],
                                     ['label' => 'Yangiliklar', 'url' => ['/site/posts']],
                                     ['label' => 'Biz bilan boglanish', 'url' => ['/site/contact']],
-                                    Yii::$app->user->isGuest ? (
-                                        ['label' => 'Login', 'url' => ['/site/login']]
-                                    ) : (
-                                        '<li>'
-                                        . Html::beginForm(['/site/logout'], 'post')
-                                        . Html::submitButton(
-                                            'Logout (' . Yii::$app->user->identity->name . ')',
-                                            ['class' => 'btn btn-link logout']
-                                        )
-                                        . Html::endForm()
-                                        . '</li>'
-                                    )
                                 ],
                             ]);
                         ?>
+
                     </nav>
 
                 </div>
             </div>
         </header>
 
-        <div class="account-popup-sec">
+        <!-- <div class="account-popup-sec">
             <div class="account-popup-area">
                 <div class="account-popup">
                     <div class="row">
@@ -99,7 +110,8 @@ AppAsset::register($this);
                                         <span>Kwitara</span>
                                         <strong>RENT PROPERTIES</strong>
                                     </a>
-                                </div><!-- LOGO -->
+                                </div>
+
                                 <form>
                                     <h4>Login Form</h4>
                                     <div class="field">
@@ -142,13 +154,15 @@ AppAsset::register($this);
                                     </label>
                                     <input type="submit" value="Singup Now" class="flat-btn" />
                                 </form>
-                            </div><!-- Registration sec -->
+                            </div>
                         </div>
                     </div>
                     <span class="close-popup"><i class="fa fa-close"></i></span>
                 </div>
             </div>
-        </div><!-- Account Popup Sec -->
+        </div> -->
+
+        <!-- Account Popup Sec -->
 
         <!-- <HEADER></HEADER> -->
 <?=$content?>
