@@ -28,23 +28,10 @@ AppAsset::register($this);
 
 <body>
 <?php $this->beginBody() ?>
-<div id="preloader"></div>
+<div id="preloader"></div> 
 <div class="theme-layout">
      <header class="simple-header for-sticky ">
-            <div class="top-bar">
-                <div class="container">
-                    <ul class="contact-item">
-                        <li><i class="fa fa-envelope-o"></i>sultonjaloladdin@gmail.com</li>
-                        <li><i class="fa fa-mobile"></i>+99899 966 43 17 / +99890 433 43 17</li>
-                    </ul>
-                    <div class="choose-language">
-                        <a href="#" title="">UZ</a>
-                        <a href="#" title="">RU</a>
-                        <a href="#" title="">EN</a>
-                        <!-- <a href="#" title="">jp</a> -->
-                    </div>
-                </div>
-            </div><!-- Top bar -->
+
             <div class="menu">
                 <div class="container">
                     <div class="logo">
@@ -185,7 +172,7 @@ AppAsset::register($this);
                                 </div><!-- heading -->
                                 <ul>
                                     <li><a href="#" title=""><i class="fa fa-angle-right"></i> Home</a></li>
-                                    <li><a href="#" title=""><i class="fa fa-angle-right"></i> About us</a></li>
+                                    <li><a href="#" tit le=""><i class="fa fa-angle-right"></i> About us</a></li>
                                     <li><a href="#" title=""><i class="fa fa-angle-right"></i> Services</a></li> 
                                     <li><a href="#" title=""><i class="fa fa-angle-right"></i> Services</a></li> 
                                 </ul>
