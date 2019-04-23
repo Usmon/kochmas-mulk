@@ -7,6 +7,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+use yii\data\ActiveDataProvider;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Posts;
@@ -132,24 +133,22 @@ class SiteController extends Controller
     
     public function actionPosts() 
     {
-        $news = Posts::find()->all();
+        $news = Posts::find(); 
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $news,
+            'pagination' => [
+                'pageSize' => 1
+            ],
+            'sort' => [
+                'defaultOrder'=> ['id' => SORT_DESC]
+            ]
+        ]);
+
         return $this->render('posts', [
-            'posts' => $news
+            'dataProvider' => $dataProvider
         ]);
     }
-
-    public function actionRegistration()
-    {
-        $model = new \app\models\Users();
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
-            return $this->redirect(['site/index']);
-        }
-
-        return $this->render('registration', [
-            'model' => $model,
-        ]);
-    }    
 
     public function actionBatafsil($id)
     {
@@ -158,8 +157,6 @@ class SiteController extends Controller
             'post'=>$post
         ]);
     }
-
-
     public function actionSell() 
     {
         $vendor = Sell::find()->all();
@@ -167,5 +164,5 @@ class SiteController extends Controller
             'sell' => $vendor
         ]);
     }
-
+    
 }
