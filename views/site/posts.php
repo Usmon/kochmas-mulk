@@ -13,6 +13,7 @@
                                 <div class="col-md-6">
                                     <div class="blog-post">
                                         <div class="post-thumb">
+                                            <?=$post->img?>
                                             <?= Html::img('@web/img/post1.jpg') ?>
                                             <div class="post-detail">
                                                 
