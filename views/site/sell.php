@@ -22,14 +22,14 @@
                                                                    <!--  <img src="img/demo/property1.jpg" alt=""> -->
                                                                     <?= Html::img('@web/img/demo/property1.jpg') ?>
                                                                      <span class="spn-save"> <i class="ti ti-heart"></i> </span>
-
+                                                                     
                                                                     <ul class="property-info">
                                                                         <li> 
                                                                             <i class="fa  fa-retweet"> </i> <span>1913 sqft </span>                                     
                                                                         </li>
                                                                         <li class="li-rl"></li>
                                                                         <li> 
-                                                                            <i class="fa  fa-bed"></i><span>  5   </span>                                 
+                                                                            <i class="fa  fa-bed"></i><span>5</span>                                 
                                                                         </li> 
                                                                         <li class="li-rl"></li>
                                                                         <li> 
@@ -44,7 +44,7 @@
                                                                     </div>
                                                                     
                                                                 </div>
-                                                                <h3><a href="property.html" title=""><?=$sell->title?></a></h3>
+                                                                <h3><a href="batafsilsell.php" title=""><?=$sell->title?></a></h3>
                                                                 <span class="price"><?=$sell->cost?></span>
                                                             </div>
                                                         </div>
